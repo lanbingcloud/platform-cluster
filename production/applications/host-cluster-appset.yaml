@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: host-cluster
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: host-cluster1
+        url: https://1.2.3.4
+      - cluster: host-cluster2
+        url: https://2.4.6.8
+  template:
+    metadata:
+      name: '{{cluster}}'
+    spec:
+      project: platform
+      source:
+        repoURL: https://gitlab.platform.com/management/conifg.git
+        targetRevision: HEAD
+        path: host-clusters/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: nautes
