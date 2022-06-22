@@ -7,16 +7,16 @@ spec:
   - list:
       elements:
       - cluster: host-cluster1
-        url: https://1.2.3.4
+        url: https://10.43.194.104:31080
       - cluster: host-cluster2
-        url: https://2.4.6.8
+        url: https://10.43.109.77:32371
   template:
     metadata:
       name: '{{cluster}}'
     spec:
       project: platform
       source:
-        repoURL: https://gitlab.platform.com/management/conifg.git
+        repoURL: https://github.com/lanbingcloud/platform-cluster.git
         targetRevision: HEAD
         path: host-clusters/{{cluster}}
       destination:
