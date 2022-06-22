@@ -7,9 +7,7 @@ spec:
   - list:
       elements:
       - cluster: host-cluster1
-        url: https://10.43.194.104:31080
-      - cluster: host-cluster2
-        url: https://10.43.109.77:32371
+        url: https://10.204.118.216:6443
   template:
     metadata:
       name: '{{cluster}}'
